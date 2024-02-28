@@ -1,0 +1,4 @@
+[submodule "v2board"]
+	path = v2board
+	url = https://github.com/wyx2685/v2board.git
+	branch = master
