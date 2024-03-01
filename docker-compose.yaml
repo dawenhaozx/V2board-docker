@@ -5,7 +5,6 @@ services:
     volumes:
       - './v2board:/www'
       - './wwwlogs:/wwwlogs'
-      - './default.conf:/www/.docker/.data/etc/nginx/http.d/default.conf'
       - './caddy.conf:/run/caddy/caddy.conf'
       - './supervisord.conf:/run/supervisor/supervisord.conf'
       - './crontabs.conf:/etc/crontabs/root'
@@ -14,10 +13,13 @@ services:
       - mysql
     ports:
       - '80:80'
+      - '7001:7001'
+      - '6600:6600'
+      - '443:443'
 #      - '443:443'
     restart: always
   mysql:
-    image: mysql:5.7.29
+    image: arm64v8/mysql:latest
     volumes:
       - './mysql:/var/lib/mysql'
     restart: always
